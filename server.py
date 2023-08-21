@@ -8,14 +8,13 @@ from snap7.util import *
 
 # Create an instance of ModbusServer
 def run_server():
-    server = ModbusServer("0.0.0.0", 502, no_block=True)
-    plc_ip = '172.23.71.254'
-    rack = 0
-    slot = 2
-    plc = snap7.client.Client()
-    plc.connect(plc_ip, rack, slot)
-
     try:
+        server = ModbusServer("0.0.0.0", 502, no_block=True)
+        plc_ip = '172.23.71.254'
+        rack = 0
+        slot = 2
+        plc = snap7.client.Client()
+        plc.connect(plc_ip, rack, slot)
         print("Start server...")
         server.start()
         print("Server is online")
